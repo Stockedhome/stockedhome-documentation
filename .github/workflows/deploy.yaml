@@ -1,0 +1,74 @@
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/**'
+      - 'static/**'
+      - 'docs/**'
+      - 'babel.config.js'
+      - 'package.json'
+      - 'pnpm-lock.json'
+      - 'docusaurus.config.js'
+      - 'sidebars.js'
+      - 'tsconfig.json'
+      - '.github/workflows/deploy.yaml'
+
+name: Deploy Documentation to GitHub Pages
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+        # ============================
+        #        Project Setup
+        # ============================
+
+        - name: Clone Repo
+          uses: actions/checkout@v4
+
+
+        - name: Set Up PNPM
+          uses: pnpm/action-setup@v4
+          with:
+              version: 9
+
+
+        - name: Set Up Node.js 21
+          uses: actions/setup-node@v4
+          with:
+            node-version: 21
+            cache: 'pnpm'
+
+
+        - name: Install dependencies
+          run: pnpm install --frozen-lockfile
+
+        # =============================
+        #    Workflow-Specific Stuff
+        # =============================
+
+        - name: Build
+          run: pnpm run build
+
+        - name: Upload Artifact
+          uses: actions/upload-artifact@v4
+          with:
+            name: docs
+            path: ${{ github.workspace }}/build
+
+  deploy:
+    needs: build
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
+    environment:
+      name: GitHub Pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
+        with:
+          artifact_name: docs

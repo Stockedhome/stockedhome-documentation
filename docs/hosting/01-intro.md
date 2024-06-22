@@ -31,7 +31,7 @@ In order to facilitate the above configurability, Stockedhome has the ability to
 The Primary Server is only responsible for what you configure it to be. However, it cannot:
 * Host the web application; the web application is always hosted on the Supplementary Server.
 * Provide the mobile app; the mobile app cannot be self-hosted.
-    * The exception to this is if you [build your own Android APK](./building-from-source/android.md) and install it on your devices. This is not recommended for most users.
+    * The exception to this is if you [build your own Android APK](./05-building-from-source/android.md) and install it on your devices. This is not recommended for most users.
 
 ### Responsibilities of the Supplementary Server
 

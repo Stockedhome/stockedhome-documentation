@@ -90,7 +90,7 @@ const config: Config = {
                     items: [
                         {
                             label: 'Hosting',
-                            to: '/docs/hosting',
+                            to: '/hosting/intro',
                         },
                     ],
                 },

@@ -10,7 +10,7 @@ Stockedhome includes plenty of configuration options to suit almost any hosting 
 ## Environment Variables
 
 :::note
-Main article: [Environment Variables](.//environment-variables/intro.md)
+Main article: [Environment Variables](./environment-variables/intro.md)
 :::
 
 Environment variables are for machine-specific and/or sensitive information. Examples include:
