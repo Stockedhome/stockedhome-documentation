@@ -16,6 +16,15 @@ on:
 
 name: Deploy Documentation to GitHub Pages
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -54,10 +63,9 @@ jobs:
         - name: Build
           run: pnpm run build
 
-        - name: Upload Artifact
-          uses: actions/upload-artifact@v4
+        - name: Upload artifact
+          uses: actions/upload-pages-artifact@v1
           with:
-            name: docs
             path: ${{ github.workspace }}/build
 
   deploy:
@@ -71,6 +79,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
-        with:
-          artifact_name: docs
+        id: deployment
+        uses: actions/deploy-pages@v2
