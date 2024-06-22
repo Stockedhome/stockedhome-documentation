@@ -1,0 +1,6 @@
+label: Configuration
+collapsible: true
+collapsed: false
+link:
+  type: doc
+  id: configuration

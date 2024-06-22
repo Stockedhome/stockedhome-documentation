@@ -1,119 +1,140 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'Stockedhome Docs',
-  tagline: 'Dinosaurs are cool',
-  favicon: 'img/favicon.ico',
+    title: 'Stockedhome Docs',
+    tagline: 'Dinosaurs are cool',
+    favicon: 'img/favicon.ico',
 
-  // Set the production url of your site here
-  url: 'https://docs.stockedhome.app',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+    // prod
+    url: 'https://docs.stockedhome.app',
+    baseUrl: '/',
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+    onBrokenLinks: 'throw',
+    onBrokenMarkdownLinks: 'warn',
 
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+    // Even if you don't use internationalization, you can use this field to set
+    // useful metadata like html lang. For example, if your site is Chinese, you
+    // may want to replace "en" with "zh-Hans".
+    i18n: {
+        defaultLocale: 'en',
+        locales: ['en'],
+    },
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
-  },
-
-  presets: [
-    [
-      'classic',
-      {
-        docs: {
-          sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/stockedhome/docs',
+    headTags: [
+        {
+            tagName: 'meta',
+            attributes: {
+                name: 'darkreader-lock',
+                content: 'true',
+            },
         },
-        blog: {
-          showReadingTime: true,
-        },
-        theme: {
-          customCss: './src/css/custom.css',
-        },
-      } satisfies Preset.Options,
     ],
-  ],
 
-  themeConfig: {
-    // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
-    navbar: {
-      title: 'Stockedhome',
-      logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
-      },
-      items: [
-        {
-          type: 'docsVersionDropdown',
-        },
-        {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'left',
-          label: 'Tutorial',
-        },
-        {
-          href: 'https://github.com/facebook/docusaurus',
-          label: 'GitHub',
-          position: 'right',
-        },
-        {
-          type: 'search',
-          position: 'right',
-        },
-      ],
-    },
-    footer: {
-      style: 'dark',
-      links: [
-        {
-          title: 'Docs',
-          items: [
+    presets: [
+        [
+            'classic',
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
-            },
-          ],
+                docs: {
+                    sidebarPath: './sidebars.ts',
+                    editUrl: 'https://github.com/Stockedhome/stockedhome-documentation',
+                    routeBasePath: '/',
+                },
+                theme: {
+                    customCss: './src/css/custom.css',
+                },
+            } satisfies Preset.Options,
+        ],
+    ],
+
+    themeConfig: {
+        colorMode: {
+            defaultMode: 'dark'
         },
-        {
-          title: 'Community',
-          items: [
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+        // Replace with your project's social card
+        image: 'img/docusaurus-social-card.jpg',
+        navbar: {
+            title: 'Stockedhome',
+            logo: {
+                alt: 'My Site Logo',
+                src: 'img/logo.svg',
             },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
-            },
-          ],
+            items: [
+                {
+                    type: 'docSidebar',
+                    sidebarId: 'hostingSidebar',
+                    position: 'left',
+                    label: 'Hosting',
+                },
+                {
+                    type: 'docsVersionDropdown',
+                    position: 'right',
+                },
+                {
+                    href: 'https://github.com/facebook/docusaurus',
+                    label: 'GitHub',
+                    position: 'right',
+                },
+                {
+                    type: 'search',
+                    position: 'right',
+                },
+            ],
         },
-      ],
-      copyright: `Copyright © ${new Date().getFullYear()} BellCube. Stockedhome is licensed under BSNC-MPL-2.0-1.0.\nBuilt with Docusaurus.`,
-      logo:
-    },
-    prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
-    },
-  } satisfies Preset.ThemeConfig,
+        footer: {
+            style: 'dark',
+            links: [
+                {
+                    title: 'Docs',
+                    items: [
+                        {
+                            label: 'Hosting',
+                            to: '/docs/hosting',
+                        },
+                    ],
+                },
+                {
+                    title: 'Stockedhome',
+                    items: [
+                        {
+                            label: 'Homepage',
+                            href: 'https://stockedhome.app',
+                        },
+                        {
+                            label: 'Web App',
+                            href: 'https://stockedhome.app/web',
+                        },
+                        {
+                            label: 'GitHub',
+                            href: 'https://github.com/Stockedhome',
+                        },
+                    ],
+                },
+                {
+                    title: 'Community',
+                    items: [
+                        {
+                            label: 'Discord',
+                            href: 'https://discord.gg/tywaPjYYR5',
+                        },
+                    ],
+                },
+            ],
+            logo: {
+                src: 'assets/logo.256.png',
+                height: 256,
+                width: 256,
+                href: 'https://stockedhome.app',
+            },
+            copyright: `Copyright © ${new Date().getFullYear()} BellCube. Stockedhome is licensed under BSNC-MPL-2.0-1.0.\nBuilt with Docusaurus.`,
+
+        },
+        prism: {
+            theme: prismThemes.github,
+            darkTheme: prismThemes.dracula,
+        },
+    } satisfies Preset.ThemeConfig,
 };
 
 export default config;
