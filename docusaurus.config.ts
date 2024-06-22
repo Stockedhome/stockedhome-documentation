@@ -27,7 +27,6 @@ const config: Config = {
             tagName: 'meta',
             attributes: {
                 name: 'darkreader-lock',
-                content: 'true',
             },
         },
     ],

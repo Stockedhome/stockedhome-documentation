@@ -2,17 +2,9 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'src/**'
-      - 'static/**'
-      - 'docs/**'
-      - 'babel.config.js'
-      - 'package.json'
-      - 'pnpm-lock.json'
-      - 'docusaurus.config.js'
-      - 'sidebars.js'
-      - 'tsconfig.json'
-      - '.github/workflows/deploy.yaml'
+    paths-ignore:
+      - .gitignore
+      - readme.md
 
 name: Deploy Documentation to GitHub Pages
 
