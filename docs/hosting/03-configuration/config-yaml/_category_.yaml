@@ -1,0 +1,6 @@
+label: Configuration YAML File
+collapsible: true
+collapsed: true
+link:
+  type: doc
+  id: configuration-env-vars

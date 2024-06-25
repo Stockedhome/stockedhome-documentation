@@ -6,6 +6,8 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 
 import styles from './index.module.css';
+import Head from '@docusaurus/Head';
+import React from 'react';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -34,6 +36,11 @@ export default function Home(): JSX.Element {
     <Layout
       title={`Hello from ${siteConfig.title}`}
       description="Description will go into a meta tag in <head />">
+        <Head>
+          {siteConfig.headTags.map((tag) =>
+            React.createElement(tag.tagName, tag.attributes, tag.innerHTML) // because the meta tags aren't appearing in prod
+          )}
+        </Head>
       <HomepageHeader />
       <main>
         <HomepageFeatures />

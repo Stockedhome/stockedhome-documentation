@@ -1,6 +1,6 @@
-label: Configuration
+label: Building from Source
 collapsible: true
-collapsed: false
+collapsed: true
 link:
   type: doc
   id: building-from-source

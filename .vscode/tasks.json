@@ -1,0 +1,40 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Dev Server - Docusaurus",
+			"detail": "Runs `pnpm start`",
+			"type": "shell",
+			"command": "pnpm",
+			"args": ["run", "start"],
+			"group": {
+				"kind": "build",
+			},
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "dedicated",
+				"showReuseMessage": true,
+				"clear": true
+			},
+			"icon": {
+				"id": "book",
+				"color": "terminal.ansiCyan",
+			},
+			"isBackground": true,
+			"problemMatcher": [
+				{ // Mark as done when Next.js is started up
+					"background": {
+						"activeOnStart": true,
+						"beginsPattern": "^ ○ Compiling (?!/_error).*?$",
+						"endsPattern": "^(?: ✓ | ⨯ ).*?$",
+					},
+					"pattern": {
+						"regexp": "^bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb---this-is-not-real-regex---bbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+					},
+				}
+			],
+		}
+	]
+}
